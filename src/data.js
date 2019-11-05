@@ -9,23 +9,28 @@ export const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "."];
 export const operators = [
   {
     char: "/",
-    value: "/"
+    value: "/",
+    hint: "Divide [/]"
   },
   {
     char: "x",
-    value: "*"
+    value: "*",
+    hint: "Multiply [*]"
   },
   {
     char: "-",
-    value: "-"
+    value: "-",
+    hint: "Subtract [-]"
   },
   {
     char: "+",
-    value: "+"
+    value: "+",
+    hint: "Add [+]"
   },
   {
     char: "=",
-    value: "="
+    value: "=",
+    hint: "Equal [=]"
   }
 ];
 
