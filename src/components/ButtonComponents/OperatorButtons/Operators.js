@@ -9,9 +9,12 @@ import { operators } from '../../../data'
 const Operators = (props) => {
   // STEP 2 - add the imported data to state
   const [operatorArray] = useState(operators);
-  const [firstOp] = useState();
-  const [firstNum] = useState()
-  const [secondNum] = useState();
+
+  const [firstOp, setFirstOp] = useState();
+  const [firstNum, setFirstNum] = useState()
+  const [secondNum, setSecondNum] = useState();
+
+  
 
   return (
     <>
