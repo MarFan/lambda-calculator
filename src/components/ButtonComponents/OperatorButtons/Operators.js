@@ -10,24 +10,6 @@ const Operators = (props) => {
   // STEP 2 - add the imported data to state
   const [operatorArray] = useState(operators);
 
-  const [firstOp, setFirstOp] = useState();
-  const [firstNum, setFirstNum] = useState()
-  const [secondNum, setSecondNum] = useState();
-
-  function crunchNumbers(){
-    if(this.btnProps.char === 'x'){
-      console.log(parseFloat(this.curDisplay.display)*2)
-    }else if(this.btnProps.char === '-'){
-      console.log(parseFloat(this.curDisplay.display)-2)
-    }else if(this.btnProps.char === '+'){
-      console.log(parseFloat(this.curDisplay.display)+2)
-    }else if(this.btnProps.char === '/'){
-      console.log(parseFloat(this.curDisplay.display)/2)
-    }
-    
-    // console.log(parseFloat(this.curDisplay.display), this.btnProps.char)
-  }  
-
   return (
     <>
       {/* STEP 3 - Use .map() to iterate over your array data and return a button

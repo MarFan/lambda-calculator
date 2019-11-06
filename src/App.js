@@ -21,13 +21,15 @@ function App() {
   const [calcDisplay, setCalcDisplay] = useState(0);
   const [firstNum, setFirstNum] = useState(undefined);
   const [myOperator, setMyOperator] = useState(undefined);
-  
+  const [lastButton, setLastButton] = useState(undefined);
+
   function displayUpdate(num) {
-    if(calcDisplay === 0){
+    if(calcDisplay === 0 || lastButton === 'op' || lastButton === 'equal'){
       setCalcDisplay(num);
     } else {
       setCalcDisplay(calcDisplay + num)
     }
+    setLastButton('num')
   }
 
   function operatorPress(op) {
@@ -35,10 +37,12 @@ function App() {
 
     if(op !== '='){
       setMyOperator(op)
-      setCalcDisplay(0);
+      setLastButton('op')
     }else{
       setCalcDisplay(eval(firstNum +''+ myOperator +''+ calcDisplay))
+      setLastButton('equal')
     }
+    
     
   }
 
@@ -51,12 +55,12 @@ function App() {
         setCalcDisplay(calcDisplay - (calcDisplay * 2));
         break;
       case '%':
-        //setFirstNum(calcDisplay);
         setCalcDisplay(calcDisplay * .1);
         break;
       default:
         break;
     }
+    setLastButton('special')
   }
 
   return (
