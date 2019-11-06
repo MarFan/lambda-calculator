@@ -20,7 +20,7 @@ const Numbers = (props) => {
        it any props needed by the child component*/}
        {
           numberState.map(num => (
-             <Button key={num} value={num} update={props.setCalcDisplay} curDisplay={props.calcDisplay} />
+             <Button key={num} value={num} displayUpdate={props.displayUpdate} />
           ))
        }
     </>

@@ -19,7 +19,46 @@ function App() {
   // Don't forget to pass the functions (and any additional data needed) to the components as props
 
   const [calcDisplay, setCalcDisplay] = useState(0);
+  const [firstNum, setFirstNum] = useState(undefined);
+  const [myOperator, setMyOperator] = useState(undefined);
   
+  function displayUpdate(num) {
+    if(calcDisplay === 0){
+      setCalcDisplay(num);
+    } else {
+      setCalcDisplay(calcDisplay + num)
+    }
+  }
+
+  function operatorPress(op) {
+    setFirstNum(calcDisplay);
+
+    if(op !== '='){
+      setMyOperator(op)
+      setCalcDisplay(0);
+    }else{
+      setCalcDisplay(eval(firstNum +''+ myOperator +''+ calcDisplay))
+    }
+    
+  }
+
+  function specialPress(special) {
+    switch(special) {
+      case 'C':
+        setCalcDisplay(0)
+        break;
+      case '+/-':
+        setCalcDisplay(calcDisplay - (calcDisplay * 2));
+        break;
+      case '%':
+        //setFirstNum(calcDisplay);
+        setCalcDisplay(calcDisplay * .1);
+        break;
+      default:
+        break;
+    }
+  }
+
   return (
     <div className="container">
       <Logo />
@@ -28,11 +67,11 @@ function App() {
         <Display calcDisplay={calcDisplay} />
         <div className="btnContainer">
           <div className="specialNums">
-            <Specials setCalcDisplay={setCalcDisplay} />
-            <Numbers setCalcDisplay={setCalcDisplay} calcDisplay={calcDisplay} />
+            <Specials specialClick={specialPress} />
+            <Numbers displayUpdate={displayUpdate} />
           </div>
           <div className="operators">
-            <Operators display={calcDisplay} setCalcDisplay={setCalcDisplay} />
+            <Operators operatorClick={operatorPress} />
           </div>        
         </div>
       </div>

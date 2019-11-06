@@ -14,7 +14,19 @@ const Operators = (props) => {
   const [firstNum, setFirstNum] = useState()
   const [secondNum, setSecondNum] = useState();
 
-  
+  function crunchNumbers(){
+    if(this.btnProps.char === 'x'){
+      console.log(parseFloat(this.curDisplay.display)*2)
+    }else if(this.btnProps.char === '-'){
+      console.log(parseFloat(this.curDisplay.display)-2)
+    }else if(this.btnProps.char === '+'){
+      console.log(parseFloat(this.curDisplay.display)+2)
+    }else if(this.btnProps.char === '/'){
+      console.log(parseFloat(this.curDisplay.display)/2)
+    }
+    
+    // console.log(parseFloat(this.curDisplay.display), this.btnProps.char)
+  }  
 
   return (
     <>
@@ -24,7 +36,7 @@ const Operators = (props) => {
 
        {
          operatorArray.map(op => (
-           <OperatorButton key={op.char} curDisplay={props} btnProps={op} />
+           <OperatorButton key={op.char} btnProps={op} operatorClick={props.operatorClick} />
          ))
        }
     </>

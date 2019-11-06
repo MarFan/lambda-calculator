@@ -17,7 +17,7 @@ const Specials = (props) => {
        it any props needed by the child component*/}
       {
         specialsState.map(special => (
-          <SpecialButton key={special} value={special} update={props.setCalcDisplay} />
+          <SpecialButton key={special} value={special} specialClick={props.specialClick} />
         ))
       }
     </>
