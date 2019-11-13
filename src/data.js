@@ -4,29 +4,34 @@
 // file. No real tricks here just be aware of what is in each array
 // and how you'll access the data.
 
-const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "."];
+export const numbers = ["7", "8", "9","4", "5", "6", "1", "2", "3", "0", "."];
 
-const operators = [
+export const operators = [
   {
     char: "/",
-    value: "/"
+    value: "/",
+    hint: "Divide [/]"
   },
   {
     char: "x",
-    value: "*"
+    value: "*",
+    hint: "Multiply [*]"
   },
   {
     char: "-",
-    value: "-"
+    value: "-",
+    hint: "Subtract [-]"
   },
   {
     char: "+",
-    value: "+"
+    value: "+",
+    hint: "Add [+]"
   },
   {
     char: "=",
-    value: "="
+    value: "=",
+    hint: "Equal [=]"
   }
 ];
 
-const specials = ["C", "+/-", "%"];
+export const specials = ["C", "+/-", "%"];
